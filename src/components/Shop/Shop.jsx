@@ -5,7 +5,7 @@ const Shop = () => {
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState([])
     useEffect(() => {
-        fetch("/public//products.json")
+        fetch("products.json")
             .then((res) => res.json())
             .then((data) => {
                  setProducts(data);
@@ -32,7 +32,11 @@ const Shop = () => {
         </div>
         <div className="cart-container">
           <h3>Order Summary</h3>
-          <p>Selected Items: {cart.length }</p>
+          <p>Selected Items: {cart.length}</p>
+          <p>Total Price: </p>
+          <p>Total Shipping Charge: </p>
+          <p>Tax:</p>
+          <h3>Grand Total: </h3>
         </div>
       </div>
     );
