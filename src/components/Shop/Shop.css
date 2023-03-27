@@ -8,3 +8,19 @@
     gap: 40px;
     margin: 50px;
 }
+.cart-container {
+    background-color: #FFE0B3;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+}
+.button-1{
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+    background-color: #FF3030;
+}
+.button-2{
+    width: 100%;
+    color: white;
+    background-color: #FF9900;
+}
