@@ -32,7 +32,7 @@ const Shop = () => {
       }
 
     }
-    console.log(storedCard);
+    // console.log(storedCard);
     // step-5 set the card
     setCart(savedCart);
   }, [products])

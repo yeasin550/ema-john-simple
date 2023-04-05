@@ -26,14 +26,14 @@ const Cart = ({cart}) => {
         <h3>Order Summary</h3>
         <p>Selected Items: {quantity}</p>
         <p>
-          Total Price: <i class="fa-solid fa-dollar-sign"></i> {totalPrice}
+          Total Price: $ {totalPrice}
         </p>
         <p>Total Shipping Charge: {totalShipping} </p>
         <p>
-          Tax: <i class="fa-solid fa-dollar-sign"></i> {tax.toFixed(2)}
+          Tax: $ {tax.toFixed(2)}
         </p>
         <h3>
-          Grand Total: <i class="fa-solid fa-dollar-sign fa-flip"></i>
+          Grand Total: $
           {grandTotal.toFixed(2)}
         </h3>
         <div className="button-container">

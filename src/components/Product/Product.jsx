@@ -16,12 +16,12 @@ const Product = (props) => {
         <div className="product-info">
           <h5 className="product-name">{name}</h5>
           <p>
-            Price : <i class="fa-solid fa-dollar-sign"></i>
+            Price : $
             {price}
           </p>
           <p>Manufacturer : {seller}</p>
           <p>
-            Rating : {ratings} <i class="fa-solid fa-star fa-spin"></i>
+            Rating : {ratings} <i class="fa-solid fa-star "></i>
           </p>
           <p>Shipping : {shipping}</p>
           <p>Stock : {stock}</p>
@@ -31,7 +31,6 @@ const Product = (props) => {
           className="btn-cart"
         >
           Add to Cart <FontAwesomeIcon icon={faShoppingCart} />
-          <i class="fa-solid fa-cart-plus fa-bounce"></i>
         </button>
       </div>
     );
