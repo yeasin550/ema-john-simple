@@ -21,7 +21,7 @@ const Product = (props) => {
           </p>
           <p>Manufacturer : {seller}</p>
           <p>
-            Rating : {ratings} <i class="fa-solid fa-star "></i>
+            Rating : {ratings} <i className="fa-solid fa-star "></i>
           </p>
           <p>Shipping : {shipping}</p>
           <p>Stock : {stock}</p>
