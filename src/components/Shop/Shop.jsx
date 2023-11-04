@@ -25,7 +25,7 @@ const Shop = () => {
   const pageNumber = [...Array(totalPages).keys()];
 
 
-  console.log(totalProducts)
+  // console.log(totalProducts)
   /**
    * 1. determine the total number of items
    * 2. ToDo: Decide on the number of items per page
@@ -34,7 +34,7 @@ const Shop = () => {
    * **/ 
 
     // useEffect(() => {
-    //     fetch("http://localhost:5000/products")
+    //     fetch("https://ema-john-server-gray.vercel.app/products")
     //       .then((res) => res.json())
     //       .then((data) => {
     //         setProducts(data);
@@ -44,7 +44,7 @@ const Shop = () => {
   
   useEffect(() => {
     async function fetchData() {
-          const response = await fetch(`http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`);
+          const response = await fetch(`https://ema-john-server-gray.vercel.app/products?page=${currentPage}&limit=${itemsPerPage}`);
       const data = await response.json();
       setProducts(data)
     }
@@ -54,27 +54,35 @@ const Shop = () => {
 
   
   useEffect(() => {
-    const storedCard = getShoppingCart()
-    const savedCart = [];
-    //  step 1;
-    for (const id in storedCard) {
-      // console.log(id)
-      //  steps 2 get the product by id
-      const addedProduct = products.find(product => product._id === id)
-      // console.log(addedProduct);
-      if (addedProduct) {
-        // step -3 get quantity of the product
-        const quantity = storedCard[id];
-        addedProduct.quantity = quantity;
-        // step - 4 add the added product to the saved cart  
-        savedCart.push(addedProduct);
+    const storedCart = getShoppingCart()
+    const ids = Object.keys(storedCart)
+    fetch(`https://ema-john-server-gray.vercel.app/productsByIds`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(ids),
+    })
+    .then(res => res.json())
+      .then(cartProducts => {
+      const savedCart = [];
+      //  step 1;
+      for (const id in storedCart) {
+        //  steps 2 get the product by id
+        const addedProduct = cartProducts.find((product) => product._id === id);
+        // console.log(addedProduct);
+        if (addedProduct) {
+          // step -3 get quantity of the product
+          const quantity = storedCart[id];
+          addedProduct.quantity = quantity;
+          // step - 4 add the added product to the saved cart
+          savedCart.push(addedProduct);
+        }
       }
-
-    }
-    // console.log(storedCard);
-    // step-5 set the card
-    setCart(savedCart);
-  }, [products])
+      // step-5 set the card
+      setCart(savedCart);
+    })
+  }, [])
    const handleAddToCart = (product) => {
     //  console.log(product);
      let newCart = []
@@ -136,7 +144,7 @@ const Shop = () => {
             <button key={number}
             className={currentPage === number ? 'selected' : ""}
               onClick={() => setCurrentPage(number)}>
-              {number}
+              {number + 1}
             </button>
           ))}
 
