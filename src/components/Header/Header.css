@@ -1,4 +1,4 @@
-.header{
+/* .header{
     height: 80px;
     background-color: #1C2B35;
     display: flex;
@@ -6,7 +6,24 @@
     align-items: center;
     padding-left: 100px;
     padding-right: 100px;
+} */
+.header {
+  height: 80px;
+  background-color: #1C2B35;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px; /* Reduce left padding */
+  padding-right: 20px; /* Reduce right padding */
+
+  /* For small screens */
+  @media screen and (max-width: 767px) {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Allow height to expand with content */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
 }
+
 .header a {
     text-decoration: none;
     color: #FFFFFF;

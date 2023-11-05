@@ -118,7 +118,7 @@ const Shop = () => {
         <div className="shop-container">
           <div className="products-container">
             {/* <h3>Products are coming : {products.length}</h3> */}
-            {products.map((product) => (
+            {products?.map((product) => (
               <Product
                 key={product._id}
                 product={product}
@@ -139,11 +139,15 @@ const Shop = () => {
         </div>
         {/* pagination */}
         <div className="pagination">
-          <p>CurrentPage : {currentPage} and item per page : { itemsPerPage}</p>
+          <p>
+            CurrentPage : {currentPage} and item per page : {itemsPerPage}
+          </p>
           {pageNumber.map((number) => (
-            <button key={number}
-            className={currentPage === number ? 'selected' : ""}
-              onClick={() => setCurrentPage(number)}>
+            <button
+              key={number}
+              className={currentPage === number ? "selected" : ""}
+              onClick={() => setCurrentPage(number)}
+            >
               {number + 1}
             </button>
           ))}
